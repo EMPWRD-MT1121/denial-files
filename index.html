@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Denial Files | Archo Advocacy</title>
+<meta name="description" content="Documented cases of patients denied or delayed necessary medical care in the United States. Every entry links to its original public reporting. Compiled by Archo Advocacy.">
+<meta property="og:title" content="The Denial Files | Archo Advocacy">
+<meta property="og:description" content="Documented cases of patients denied or delayed necessary care in the U.S. Every entry links to its source.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Archo Advocacy">
+<meta name="theme-color" content="#05153A">
+<style>
+:root{
+  --navy:#05153A; --gold:#D1B98B; --bronze:#8A6E3E; --graphite:#2A3140;
+  --slate:#5B6B8C; --ink:#0C1F40; --bone:#F5F3EE; --mist:#F3F4F9;
+  --sand:#EFE8D9; --border:#E4DECF; --white:#FFFFFF;
+  --serif: Georgia, 'Times New Roman', serif;
+  --kicker: 'Century Gothic', 'Avenir Next', Futura, 'Trebuchet MS', sans-serif;
+  --body: Calibri, 'Helvetica Neue', Arial, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);color:var(--graphite);background:var(--bone);font-size:17px;line-height:1.55}
+a{color:var(--bronze)}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* Header */
+header{background:var(--navy);position:sticky;top:0;z-index:50;border-bottom:1px solid rgba(209,185,139,.25)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand .mark{font-family:var(--serif);color:var(--white);font-size:20px;letter-spacing:.5px}
+.brand .mark b{color:var(--gold);font-weight:normal}
+.navlinks{display:flex;gap:22px}
+.navlinks a{font-family:var(--kicker);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85);text-decoration:none}
+.navlinks a:hover{color:var(--gold)}
+
+/* Hero */
+.hero{background:var(--navy);color:var(--white);padding:72px 0 56px;position:relative;overflow:hidden}
+.hero .amark{position:absolute;right:-30px;top:50%;transform:translateY(-50%);width:560px;height:448px;background:url(logo-a-gold.png) no-repeat center/contain;opacity:.08;user-select:none;pointer-events:none}
+@media(max-width:900px){.hero .amark{display:none}}
+.kicker{font-family:var(--kicker);font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.hero h1{font-family:var(--serif);font-weight:normal;font-size:56px;line-height:1.08;max-width:760px}
+.titlerow{display:flex;align-items:center;gap:48px;flex-wrap:wrap}
+.heroicon{width:168px;height:auto;flex-shrink:0}
+.hero h1 em{color:var(--gold);font-style:italic}
+.hero p.sub{max-width:640px;margin-top:20px;font-size:19px;color:rgba(255,255,255,.85)}
+.statbar{display:flex;flex-wrap:wrap;gap:0;margin-top:44px;border:1px solid rgba(209,185,139,.35);background:var(--ink)}
+.stat{flex:1;min-width:150px;padding:20px 24px;border-right:1px solid rgba(209,185,139,.25)}
+.stat:last-child{border-right:none}
+.stat .n{font-family:var(--serif);font-size:34px;color:var(--gold)}
+.stat .l{font-family:var(--kicker);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-top:4px}
+
+/* Filters */
+.tools{background:var(--white);border-bottom:1px solid var(--border);padding:24px 0}
+.searchrow{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.searchrow input[type=search]{flex:1;min-width:240px;padding:11px 14px;border:1px solid var(--border);background:var(--mist);font-family:var(--body);font-size:16px;color:var(--graphite)}
+.searchrow select{padding:11px 12px;border:1px solid var(--border);background:var(--mist);font-family:var(--body);font-size:15px;color:var(--graphite)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{font-family:var(--kicker);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--border);background:var(--white);color:var(--slate);cursor:pointer;user-select:none}
+.chip:hover{border-color:var(--gold)}
+.chip.active{background:var(--navy);color:var(--gold);border-color:var(--navy)}
+.chip .ct{opacity:.65;margin-left:5px}
+.resultline{font-family:var(--kicker);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin:26px 0 4px}
+
+/* Cards */
+.cards{padding:8px 0 56px}
+.card{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--border);padding:26px 28px;margin-top:18px;transition:border-color .15s}
+.card:hover{border-left-color:var(--gold)}
+.card h3{font-family:var(--serif);font-weight:normal;font-size:23px;line-height:1.25;color:var(--navy)}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:10px;font-size:14.5px;color:var(--slate)}
+.meta b{color:var(--graphite);font-weight:600}
+.pill{display:inline-block;font-family:var(--kicker);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--sand);color:var(--bronze);padding:4px 10px}
+.card .summary{margin-top:14px}
+.block{margin-top:12px;font-size:15.5px}
+.block .lbl{font-family:var(--kicker);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:2px}
+.src{display:inline-block;margin-top:14px;font-family:var(--kicker);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze);text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:2px}
+.src:hover{color:var(--navy)}
+.empty{padding:60px 0;text-align:center;color:var(--slate);font-family:var(--serif);font-size:20px;display:none}
+
+/* Why inset */
+.whyinset{margin-top:34px;max-width:880px;background:var(--ink);border:1px solid rgba(209,185,139,.35);border-left:3px solid var(--gold);padding:28px 32px}
+.whyinset .wq{font-family:var(--serif);font-size:23px;line-height:1.35;color:var(--white)}
+.whyinset .wq em{color:var(--gold);font-style:italic}
+.whyinset p.wbody{margin-top:12px;font-size:16px;color:rgba(255,255,255,.82)}
+.whocols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:20px;padding-top:18px;border-top:1px solid rgba(209,185,139,.25)}
+.who .wlabel{font-family:var(--kicker);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold)}
+.who p{margin-top:6px;font-size:15px;color:rgba(255,255,255,.78)}
+
+/* Methodology */
+.method{background:var(--white);border-top:1px solid var(--border);padding:64px 0}
+.method h2, .cta h2{font-family:var(--serif);font-weight:normal;font-size:34px;color:var(--navy)}
+.method h2 em{color:var(--bronze);font-style:italic}
+.method p.lead{max-width:680px;margin-top:14px}
+.defs{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:32px}
+.def{background:var(--mist);border:1px solid var(--border);padding:18px 20px}
+.def .dname{font-family:var(--kicker);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.def p{font-size:15px;margin-top:6px;color:var(--graphite)}
+
+/* CTA */
+.cta{background:var(--navy);color:var(--white);padding:64px 0}
+.cta h2{color:var(--white)}
+.cta h2 em{color:var(--gold);font-style:italic}
+.cta p{max-width:620px;margin-top:14px;color:rgba(255,255,255,.85)}
+.btns{margin-top:28px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:var(--kicker);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;padding:14px 24px}
+.btn.gold{background:var(--gold);color:var(--navy)}
+.btn.line{border:1px solid var(--gold);color:var(--gold)}
+.btn:hover{opacity:.88}
+
+/* Footer */
+footer{background:var(--ink);color:rgba(255,255,255,.7);padding:36px 0;font-size:14px}
+footer a{color:var(--gold);text-decoration:none}
+footer .fine{margin-top:10px;font-size:13px;color:rgba(255,255,255,.5)}
+
+@media(max-width:640px){
+  .hero h1{font-size:38px}
+  .heroicon{width:104px}
+  .stat .n{font-size:26px}
+  .navlinks{gap:14px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="https://archo.io"><img src="logo-a-gold.png" alt="Archo A monogram" style="height:34px;width:auto;display:block"><span class="mark">ARCHO</span></a>
+    <nav class="navlinks">
+      <a href="https://tracker.archo.io">Legislation Tracker</a>
+      <a href="https://archo.io/Insights.html">Insights</a>
+      <a href="https://archo.io/contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="amark"></div>
+  <div class="wrap">
+    <div class="kicker">Archo Advocacy &middot; Documented Public Record</div>
+    <div class="titlerow">
+      <h1>The Denial <em>Files</em></h1>
+      <svg class="heroicon" viewBox="0 0 900 760" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#D1B98B" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+  <!-- back folder panel (visible sliver, upper left) -->
+  <path d="M196 690 V320 q0 -14 14 -14 h96"/>
+  <!-- back sheet (top strip visible) -->
+  <path d="M372 184 v-44 q0 -8 8 -8 h212 q8 0 8 8 v44"/>
+  <!-- small tab, right -->
+  <path d="M664 262 h34 q8 0 8 8 v176"/>
+  <!-- front sheet with diagonal strike band -->
+  <path d="M310 446 V196 q0 -8 8 -8 h330 q8 0 8 8 v250"/>
+  <line x1="338" y1="240" x2="600" y2="436"/>
+  <line x1="378" y1="222" x2="636" y2="416"/>
+  <!-- front flap (tilted parallelogram) -->
+  <path d="M336 442 H756 q12 0 10 13 L718 710 q-3 13 -16 13 H272 q-12 0 -10 -13 L306 455 q3 -13 16 -13 z"/>
+  <!-- accent dashes -->
+  <path d="M330 488 h118"/>
+  <path d="M556 676 h122 q10 0 12 -12 l14 -70"/>
+</svg>
+    </div>
+    <p class="sub">Documented cases of patients denied or delayed necessary medical care in the United States. Every entry names a real patient, cites credible public reporting, and links to its original source.</p>
+    <div class="whyinset">
+      <div class="wq">Denials hide in the aggregate. <em>Stories change the argument.</em></div>
+      <p class="wbody">Insurers report denials as percentages. Percentages never sat in a pre-op room waiting for a surgery that got canceled. Each case here puts a name, a diagnosis, and a blocking entity on the pattern, and the record grows monthly because the pattern has not stopped.</p>
+      <div class="whocols">
+        <div class="who">
+          <span class="wlabel">For Patients &amp; Caregivers</span>
+          <p>A denial opens a negotiation. It does not end one. Most reversals in this record happened because someone pushed: an internal appeal, a state external review, an AI-drafted appeal letter, a reporter's phone call. Search cases that match your condition, your insurer, or your state, and borrow the tactics that worked.</p>
+        </div>
+        <div class="who">
+          <span class="wlabel">For Advocates &amp; Advocacy Professionals</span>
+          <p>Brief lawmakers, ground testimony, and sharpen media pitches with sourced, categorized, searchable evidence. These stories already move policy: Idaho restored ACT services, West Virginia passed prior authorization reform, and California wrote reform bills around patients named in this record.</p>
+        </div>
+      </div>
+    </div>
+    <div class="statbar" id="statbar"></div>
+  </div>
+</section>
+
+<section class="tools">
+  <div class="wrap">
+    <div class="searchrow">
+      <input type="search" id="q" placeholder="Search by patient, condition, insurer, or keyword">
+      <select id="stateSel"><option value="">All states</option></select>
+      <select id="yearSel"><option value="">All years</option></select>
+      <select id="sortSel">
+        <option value="newest">Newest first</option>
+        <option value="oldest">Oldest first</option>
+        <option value="az">A to Z</option>
+      </select>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+</section>
+
+<main class="wrap cards">
+  <div class="resultline" id="resultline"></div>
+  <div id="list"></div>
+  <div class="empty" id="empty">No cases match those filters. Clear a filter and try again.</div>
+</main>
+
+<section class="method">
+  <div class="wrap">
+    <div class="kicker" style="color:var(--bronze)">Methodology</div>
+    <h2>What qualifies for <em>the record.</em></h2>
+    <p class="lead">Each case meets three standards: a named or clearly identified patient, coverage by a credible news organization, and a documented denial or delay of necessary care. We compile, categorize, and update the record monthly. We add nothing we cannot source.</p>
+    <div class="defs">
+      <div class="def"><span class="dname">Prior Auth Delay</span><p>The insurer delays or denies recommended treatment through prior authorization requirements.</p></div>
+      <div class="def"><span class="dname">Experimental Therapy</span><p>The insurer labels an FDA approved or emerging treatment as experimental to avoid coverage.</p></div>
+      <div class="def"><span class="dname">Coverage Loss</span><p>The patient loses insurance through Medicaid termination, policy lapse, or administrative action.</p></div>
+      <div class="def"><span class="dname">Network Adequacy / Ghost Network</span><p>Directory errors or gap exception denials block the patient from in-network care.</p></div>
+      <div class="def"><span class="dname">EMTALA / OB Care</span><p>An emergency room refuses to screen or treat, or providers hesitate under policy or law.</p></div>
+      <div class="def"><span class="dname">Mental Health Parity</span><p>The insurer denies behavioral health treatment using restrictive proprietary criteria.</p></div>
+      <div class="def"><span class="dname">Formulary Exclusion</span><p>The insurer reclassifies a long covered medication as excluded or experimental.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div class="kicker">The Policy Behind The Pattern</div>
+    <h2>These stories have a <em>legislative response.</em></h2>
+    <p>Many of the failures documented here are the target of active bills in state legislatures and Congress. Our Healthcare Legislation Tracker follows them from introduction to enactment.</p>
+    <div class="btns">
+      <a class="btn gold" href="https://tracker.archo.io">Open the Legislation Tracker</a>
+      <a class="btn line" href="https://archo.io/Insights.html">Read the Archo Advocate Brief</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>Data compiled from public reporting by <a href="https://archo.io">Archo Advocacy</a>. Every entry links to its original source.</div>
+    <div class="fine">Last updated July 13, 2026. This resource exists for informational and advocacy purposes and offers no legal or medical advice. Corrections: <a href="mailto:contactus@archo.io">contactus@archo.io</a></div>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+
+const $ = s => document.querySelector(s);
+let activeCat = "";
+
+function esc(t){const d=document.createElement('div');d.textContent=t==null?"":String(t);return d.innerHTML;}
+
+function init(){
+  const cats = {};
+  const states = new Set(), years = new Set(), entities = new Set();
+  DATA.forEach(r=>{
+    if(r.Category) cats[r.Category]=(cats[r.Category]||0)+1;
+    if(r.State) states.add(r.State);
+    if(r.Year) years.add(Math.round(r.Year));
+    if(r["Blocking Entity"]) entities.add(r["Blocking Entity"]);
+  });
+
+  const yrs=[...years].sort();
+  $("#statbar").innerHTML =
+    stat(DATA.length,"Documented cases")+
+    stat(states.size,"States")+
+    stat(entities.size,"Blocking entities")+
+    stat(yrs[0]+" to "+yrs[yrs.length-1],"Time span");
+
+  const chipbox=$("#chips");
+  chipbox.innerHTML='<span class="chip active" data-cat="">All categories <span class="ct">'+DATA.length+'</span></span>'+
+    Object.keys(cats).sort().map(c=>'<span class="chip" data-cat="'+esc(c)+'">'+esc(c)+' <span class="ct">'+cats[c]+'</span></span>').join("");
+  chipbox.addEventListener("click",e=>{
+    const chip=e.target.closest(".chip"); if(!chip) return;
+    activeCat=chip.dataset.cat;
+    chipbox.querySelectorAll(".chip").forEach(c=>c.classList.toggle("active",c===chip));
+    render();
+  });
+
+  [...states].sort().forEach(s=>$("#stateSel").insertAdjacentHTML("beforeend",'<option>'+esc(s)+'</option>'));
+  yrs.slice().reverse().forEach(y=>$("#yearSel").insertAdjacentHTML("beforeend",'<option>'+y+'</option>'));
+
+  ["q","stateSel","yearSel","sortSel"].forEach(id=>{
+    document.getElementById(id).addEventListener("input",render);
+    document.getElementById(id).addEventListener("change",render);
+  });
+  render();
+}
+
+function stat(n,l){return '<div class="stat"><div class="n">'+n+'</div><div class="l">'+l+'</div></div>';}
+
+function render(){
+  const q=$("#q").value.trim().toLowerCase();
+  const st=$("#stateSel").value, yr=$("#yearSel").value, sort=$("#sortSel").value;
+  let rows=DATA.filter(r=>{
+    if(activeCat && r.Category!==activeCat) return false;
+    if(st && r.State!==st) return false;
+    if(yr && String(Math.round(r.Year||0))!==yr) return false;
+    if(q){
+      const hay=[r.Story,r["Patient Name"],r["Diagnosis / Condition"],r["Blocking Entity"],r.Summary,r["Outcome / Status"],r.State].join(" ").toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  rows.sort((a,b)=>{
+    if(sort==="newest") return (b.Year||0)-(a.Year||0) || String(a.Story).localeCompare(b.Story);
+    if(sort==="oldest") return (a.Year||0)-(b.Year||0) || String(a.Story).localeCompare(b.Story);
+    return String(a.Story).localeCompare(b.Story);
+  });
+  $("#resultline").textContent = rows.length + (rows.length===1?" case":" cases") + (activeCat? " · "+activeCat : "") + (st? " · "+st : "");
+  $("#empty").style.display = rows.length? "none":"block";
+  $("#list").innerHTML = rows.map(card).join("");
+}
+
+function card(r){
+  const yr=r.Year?Math.round(r.Year):"";
+  return '<article class="card">'
+    +'<h3>'+esc(r.Story)+'</h3>'
+    +'<div class="meta">'
+    +(r["Patient Name"]?'<span><b>'+esc(r["Patient Name"])+'</b></span>':'')
+    +(r.State?'<span>'+esc(r.State)+'</span>':'')
+    +(yr?'<span>'+yr+'</span>':'')
+    +(r.Category?'<span class="pill">'+esc(r.Category)+'</span>':'')
+    +'</div>'
+    +(r["Diagnosis / Condition"]?'<div class="block"><span class="lbl">Condition</span>'+esc(r["Diagnosis / Condition"])+'</div>':'')
+    +(r["Blocking Entity"]?'<div class="block"><span class="lbl">Blocking entity</span><b>'+esc(r["Blocking Entity"])+'</b></div>':'')
+    +(r.Summary?'<p class="summary">'+esc(r.Summary)+'</p>':'')
+    +(r["Outcome / Status"]?'<div class="block"><span class="lbl">Outcome</span>'+esc(r["Outcome / Status"])+'</div>':'')
+    +(r["Source URL"]?'<a class="src" href="'+esc(r["Source URL"])+'" target="_blank" rel="noopener">Read the reporting</a>':'')
+    +'</article>';
+}
+
+init();
+</script>
+</body>
+</html>
